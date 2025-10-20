@@ -18,7 +18,7 @@
 __module_start:
     // newer rtld versions check the first four bytes to determine the version
     // 0, `b #0x8` (arm), or `b #0xc` (aarch64) are treated as the older version anything else is treated as the new version
-    // older versions of rtld appear to not care about what comes after the runtime module offset
+    // older versions of rtld appear to not care about what comes after the module header offset
     b entrypoint
     .word __nx_mod0 - __module_start
     .word __unused_garbage - __module_start
