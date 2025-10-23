@@ -21,7 +21,7 @@ __module_start:
     // older versions of rtld appear to not care about what comes after the module header offset
     b entrypoint
     .word __nx_mod0 - __module_start
-    .word __unused_garbage - __module_start
+    .word __sdk_version - __module_start
 
     .align 4
     .ascii "~~exlaunch uwu~~"
@@ -99,8 +99,8 @@ __nx_mod0:
     .word  exl_nx_module_runtime    - __nx_mod0
     // newer versions have a longer module header, but the other fields aren't directly used so we can ignore them
 
-// a pointer to this is passed to nn::ro::ProtectRelro on later versions but it's unused
-__unused_garbage:
-    .word   20
-    .word   5
-    .word   6
+// sdk version (unused so it doesn't actually matter what's here)
+__sdk_version:
+    .word   69
+    .word   420
+    .word   69
